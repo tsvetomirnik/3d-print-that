@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>3D Print That</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="container">
+            <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <h1 class="display-4">3D Print That</h1>
+                <p class="lead">
+                    You name it we make it.
+                </p>
+            </div>
+
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="file-input" @change="onFileChanged">
+                <label class="custom-file-label" for="file-input">Select your model</label>
+            </div>
+
+
+            <div class="card" v-if="printDetails">
+                <model-stl class="card-img-top" v-if="previewUrl" :src="previewUrl"></model-stl>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Volume: {{printDetails.volume.toFixed(2)}} <span>cm<sup>3</sup></span></li>
+                    <li class="list-group-item">Weight: {{printDetails.weight.toFixed(2)}} <span>g</span></li>
+                    <li class="list-group-item">Area: {{printDetails.area.toFixed(2)}} <span>mm</span></li>
+                </ul>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Contact Name</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Shipping Address</label>
+                        <input type="text" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Buy for {{price}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-3d-model/dist/vue-3d-model.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>

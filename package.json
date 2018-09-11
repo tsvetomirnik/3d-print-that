@@ -1,0 +1,24 @@
+{
+  "name": "3d-print-that",
+  "version": "1.0.0",
+  "description": "Website to request 3D printing of STL model.",
+  "keywords": [
+    "3D",
+    "printing",
+    "STL"
+  ],
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tsvetomit Nikolov",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "node-stl": "^0.5.0",
+    "random-string": "^0.2.0"
+  }
+}
