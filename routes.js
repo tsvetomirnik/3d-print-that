@@ -85,10 +85,18 @@ module.exports = (app) => {
         const price = calculatePricePerWeight(weight);
 
         res.json({
-            volume: stl.volume, // cm^3
-            weight: weight, // gm
-            boundingBox: stl.boundingBox, // mm,
-            area: stl.area, // m
+            volume: {
+                value: stl.volume,
+                unit: 'cm³'
+            },
+            area: {
+                value: stl.area / 100,
+                unit: 'cm²'
+            },
+            weight: {
+                value: weight,
+                unit: 'g'
+            },
             price: {
                 value: price,
                 currency: 'BGN'

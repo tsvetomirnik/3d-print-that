@@ -27,9 +27,9 @@
             <div class="card" v-if="printDetails">
                 <model-stl class="card-img-top" v-if="previewUrl" :src="previewUrl"></model-stl>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Volume: {{printDetails.volume.toFixed(2)}} <span>cm<sup>3</sup></span></li>
-                    <li class="list-group-item">Weight: {{printDetails.weight.toFixed(2)}} <span>g</span></li>
-                    <li class="list-group-item">Area: {{printDetails.area.toFixed(2)}} <span>mm</span></li>
+                    <li class="list-group-item">Volume: {{printDetails.volume.value.toFixed(2)}} {{printDetails.volume.unit}}</li>
+                    <li class="list-group-item">Area: {{printDetails.area.value.toFixed(2)}} {{printDetails.area.unit}}</li>
+                    <li class="list-group-item">Weight: {{printDetails.weight.value.toFixed(2)}} {{printDetails.weight.unit}}</li>
                 </ul>
                 <div class="card-body">
                     <div class="form-group">
