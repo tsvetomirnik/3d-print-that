@@ -3,6 +3,10 @@ const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const app = express();
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 const port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
