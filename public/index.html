@@ -27,9 +27,11 @@
             <div class="card" v-if="printDetails">
                 <model-stl class="card-img-top" v-if="previewUrl" :src="previewUrl"></model-stl>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Volume: {{printDetails.volume.value.toFixed(2)}} {{printDetails.volume.unit}}</li>
+                    <li class="list-group-item">Volume: {{printDetails.volume.value.toFixed(2)}}
+                        {{printDetails.volume.unit}}</li>
                     <li class="list-group-item">Area: {{printDetails.area.value.toFixed(2)}} {{printDetails.area.unit}}</li>
-                    <li class="list-group-item">Weight: {{printDetails.weight.value.toFixed(2)}} {{printDetails.weight.unit}}</li>
+                    <li class="list-group-item">Weight: {{printDetails.weight.value.toFixed(2)}}
+                        {{printDetails.weight.unit}}</li>
                 </ul>
                 <div class="card-body">
                     <div class="form-group">
@@ -40,14 +42,15 @@
                         <label>Shipping Address</label>
                         <input type="text" class="form-control" />
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Buy for {{price}}</button>
+                    <button type="submit" class="btn btn-primary">Buy for {{printDetails.price.value |
+                        currency(printDetails.price.unit) }}</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue-3d-model/dist/vue-3d-model.js"></script>
     <script src="./app.js"></script>

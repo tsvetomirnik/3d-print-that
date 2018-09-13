@@ -99,7 +99,7 @@ module.exports = (app) => {
             },
             price: {
                 value: price,
-                currency: 'BGN'
+                unit: { symbol: "лв.", format: "%v %s" }
             }
         });
     });

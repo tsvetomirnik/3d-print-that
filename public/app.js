@@ -10,6 +10,11 @@
                 price: null
             };
         },
+        filters: {
+            currency(value, options) {
+                return accounting.formatMoney(value, options);
+            }
+        },
         methods: {
             onFileChanged(event) {
                 var file = event.target.files[0];
@@ -31,13 +36,7 @@
                 const url = `/api/file/${fileName}/details`;
                 axios.get(url)
                     .then((response) => {
-                        const details = response.data;
-                        this.printDetails = details;
-                        this.price = new Intl.NumberFormat('en-US', {
-                            style: 'currency',
-                            currency: details.price.currency,
-                            minimumFractionDigits: 2,
-                        }).format(details.price.value);
+                        this.printDetails = response.data;
                     });
             }
         }
